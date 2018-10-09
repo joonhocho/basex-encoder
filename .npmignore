@@ -1,0 +1,11 @@
+.ackrc
+.gitignore
+.npmignore
+.travis.yml
+coverage
+jest.config.js
+prettier.config.js
+tsconfig.json
+tsconfig.test.json
+tslint.json
+*.test.*
