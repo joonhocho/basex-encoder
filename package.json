@@ -1,5 +1,5 @@
 {
-  "name": "basex-encode",
+  "name": "basex-encoder",
   "version": "0.0.1",
   "description": "Encode / decode any base X to and from string or buffer",
   "main": "lib/index.js",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joonhocho/basex-encode.git"
+    "url": "git+https://github.com/joonhocho/basex-encoder.git"
   },
   "keywords": [
     "TypeScript",
@@ -37,9 +37,9 @@
   "author": "Joon Ho Cho",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/joonhocho/basex-encode/issues"
+    "url": "https://github.com/joonhocho/basex-encoder/issues"
   },
-  "homepage": "https://github.com/joonhocho/basex-encode#readme",
+  "homepage": "https://github.com/joonhocho/basex-encoder#readme",
   "devDependencies": {
     "@types/jest": "^23.3.1",
     "@types/node": "^10.11.4",
