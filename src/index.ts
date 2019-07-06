@@ -8,15 +8,15 @@
 // Merged Buffer refactorings from base58-native by Stephen Pair
 // Copyright (c) 2013 BitPay Inc
 export interface IBaseXEncoder {
-  encode: (str: string, encoding?: string) => string;
+  encode: (str: string, encoding?: BufferEncoding) => string;
   encodeFromBuffer: (source: Buffer) => string;
-  decode: (encoded: string, encoding?: string) => string | null;
+  decode: (encoded: string, encoding?: BufferEncoding) => string | null;
   decodeToBuffer: (str: string) => Buffer | null;
 }
 
 export const encoder = (
   ALPHABET: string,
-  defaultEncoding = 'utf8'
+  defaultEncoding: BufferEncoding = 'utf8'
 ): IBaseXEncoder => {
   const ALPHABET_MAP: { [key: string]: number } = {};
   const BASE = ALPHABET.length;
@@ -105,12 +105,14 @@ export const encoder = (
     return Buffer.from(bytes.reverse());
   };
 
-  const encode = (str: string, encoding = defaultEncoding): string =>
-    encodeFromBuffer(Buffer.from(str, encoding));
+  const encode = (
+    str: string,
+    encoding: BufferEncoding = defaultEncoding
+  ): string => encodeFromBuffer(Buffer.from(str, encoding));
 
   const decode = (
     encoded: string,
-    encoding = defaultEncoding
+    encoding: BufferEncoding = defaultEncoding
   ): string | null => {
     const buffer = decodeToBuffer(encoded);
     return buffer && buffer.toString(encoding);
