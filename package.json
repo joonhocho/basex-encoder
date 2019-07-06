@@ -1,6 +1,6 @@
 {
   "name": "basex-encoder",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Encode / decode any base X to and from string or buffer",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
