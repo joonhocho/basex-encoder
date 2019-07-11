@@ -1,17 +1,25 @@
 {
   "name": "basex-encoder",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Encode / decode any base X to and from string or buffer",
-  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "main": "dist/node/index.js",
+  "browser": "dist/browser/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build": "tsc -p ./tsconfig.json && tscpaths -p ./tsconfig.json -s ./src -o ./lib",
-    "clear": "rm -rf ./lib ./coverage",
+    "all": "npm run clean && npm run format && npm run lint:fix && npm run build:all && npm run test",
+    "build:all": "npm run build:module && npm run build:node && npm run build:browser",
+    "build:browser": "tsc -p ./tsconfig.browser.json && tscpaths -p ./tsconfig.browser.json -s ./src -o ./dist/browser",
+    "build:module": "tsc -p ./tsconfig.module.json && tscpaths -p ./tsconfig.module.json -s ./src -o ./lib",
+    "build:node": "tsc -p ./tsconfig.node.json && tscpaths -p ./tsconfig.node.json -s ./src -o ./dist/node",
+    "clean": "rm -rf ./lib ./dist ./coverage",
     "format": "prettier --write \"./*.{js,jsx,ts,tsx}\" \"./src/**/*.{js,jsx,ts,tsx}\"",
-    "lint": "tslint -c ./tslint.json \"src/**/*\"",
-    "lint:fix": "tslint --fix -c ./tslint.json \"src/**/*\"",
-    "start": "yarn clear && yarn format && yarn lint:fix && yarn test && yarn build",
-    "prepublish": "yarn start",
+    "lint": "tslint -c ./tslint.json \"src/**/*.ts\"",
+    "lint:fix": "tslint --fix -c ./tslint.json \"src/**/*.ts\"",
+    "precommit": "npm run all",
+    "prepublish": "npm run all",
+    "reinstall": "rm -rf ./node_modules ./package-lock.json ./yarn.lock && yarn",
+    "start": "npm run test",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:coverage:report": "jest --coverage && cat ./coverage/lcov.info | coveralls",
@@ -42,7 +50,7 @@
   "homepage": "https://github.com/joonhocho/basex-encoder#readme",
   "devDependencies": {
     "@types/jest": "^24.0.15",
-    "@types/node": "^12.0.12",
+    "@types/node": "^12.6.2",
     "coveralls": "^3.0.4",
     "jest": "^24.8.0",
     "prettier": "^1.18.2",
@@ -51,7 +59,7 @@
     "tslint": "^5.18.0",
     "tslint-config-airbnb": "^5.11.1",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.5.2"
+    "typescript": "^3.5.3"
   },
   "dependencies": {}
 }
