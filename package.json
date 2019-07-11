@@ -1,6 +1,6 @@
 {
   "name": "basex-encoder",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Encode / decode any base X to and from string or buffer",
   "module": "lib/index.js",
   "main": "dist/node/index.js",
@@ -66,5 +66,6 @@
   },
   "engines": {
     "node": ">=8.0.0"
-  }
+  },
+  "sideEffects": false
 }
