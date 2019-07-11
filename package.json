@@ -1,6 +1,6 @@
 {
   "name": "basex-encoder",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Encode / decode any base X to and from string or buffer",
   "module": "lib/index.js",
   "main": "dist/node/index.js",
@@ -61,5 +61,10 @@
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.5.3"
   },
-  "dependencies": {}
+  "peerDependencies": {
+    "tslib": "^1.10.0"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  }
 }
