@@ -1,6 +1,6 @@
 {
   "name": "basex-encoder",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Encode / decode any base X to and from string or buffer",
   "keywords": [
     "TypeScript",
